@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESUME // DAVID CARRANO - THE NEON BASEMENT</title>
+  <style>
+    :root {
+      --bg-color: #07070b;
+      --panel-bg: #0d0e15;
+      --neon-green: #39ff14;
+      --neon-cyan: #00f3ff;
+      --neon-magenta: #ff00ff;
+      --text-main: #d8dee9;
+      --text-muted: #8892b0;
+      --border-dim: #1e2235;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      line-height: 1.6;
+      padding: 20px;
+      background-image: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+      );
+      background-size: 100% 4px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--panel-bg);
+      border: 1px solid var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+      padding: 30px;
+    }
+
+    /* Navigation matching The Neon Basement */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      border-bottom: 1px dashed var(--neon-magenta);
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--neon-green);
+      text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+    }
+
+    /* Header Block */
+    header {
+      border-bottom: 2px solid var(--neon-green);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    h1 {
+      color: var(--neon-green);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+    }
+
+    .subtitle {
+      color: var(--neon-cyan);
+      font-size: 1rem;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .contact-bar {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-bar a {
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--neon-cyan);
+    }
+
+    .contact-bar a:hover {
+      color: var(--neon-cyan);
+    }
+
+    .print-btn {
+      background: transparent;
+      color: var(--neon-magenta);
+      border: 1px solid var(--neon-magenta);
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--neon-magenta);
+      color: var(--bg-color);
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: var(--neon-magenta);
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+    }
+
+    h2::before {
+      content: "> ";
+      color: var(--neon-green);
+    }
+
+    /* Cable Bros Feature Callout Box */
+    .venture-box {
+      border: 1px solid var(--neon-green);
+      background: rgba(57, 255, 20, 0.04);
+      padding: 18px;
+      margin-bottom: 25px;
+    }
+
+    .venture-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .venture-title {
+      color: var(--neon-green);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border-dim);
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .skill-card strong {
+      display: block;
+      color: var(--neon-cyan);
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+
+    .skill-card p {
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    /* Experience Items */
+    .job {
+      margin-bottom: 22px;
+      padding-left: 14px;
+      border-left: 2px solid var(--border-dim);
+    }
+
+    .job:hover {
+      border-left-color: var(--neon-cyan);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .company {
+      color: var(--neon-cyan);
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .location {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .role-line {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 5px;
+      color: var(--neon-green);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin-left: 20px;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    /* Education & Certs */
+    .cert-list {
+      list-style: none;
+      margin-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 8px;
+    }
+
+    .cert-list li::before {
+      content: "[+] ";
+      color: var(--neon-green);
+    }
+
+    .cert-upcoming {
+      color: var(--neon-cyan);
+    }
+
+    footer {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px dashed var(--border-dim);
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Clean Print Stylesheet for Recruiters / PDF Export */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        background: #ffffff !important;
+        padding: 0;
+        max-width: 100%;
+      }
+      nav, .print-btn, footer {
+        display: none !important;
+      }
+      header {
+        border-bottom: 2px solid #222;
+      }
+      h1, h2, .company, .role-line, .venture-title, .skill-card strong {
+        color: #000000 !important;
+        text-shadow: none !important;
+      }
+      h2 {
+        border-bottom: 1px solid #999;
+      }
+      .subtitle, .contact-bar, .contact-bar a, .location, .skill-card p, .badge {
+        color: #333333 !important;
+        border-color: #666 !important;
+      }
+      .venture-box, .skill-card {
+        border: 1px solid #ccc;
+        background: #f9f9f9 !important;
+      }
+      .job {
+        border-left: 2px solid #999;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">[ HOME ]</a>
+      <a href="blog.html">[ BLOG ]</a>
+      <a href="resume.html" class="active">[ RESUME ]</a>
+    </nav>
+
+    <header>
+      <div>
+        <h1>DAVID CARRANO</h1>
+        <div class="subtitle">
+          School Database Manager | Digital Communications Specialist | IT Field Support Technician
+        </div>
+        <div class="contact-bar">
+          Crestwood, IL 60418 &nbsp;|&nbsp;
+          <a href="tel:+17088908535">+1 708 890 8535</a> &nbsp;|&nbsp;
+          <a href="mailto:carranod3@gmail.com">carranod3@gmail.com</a>
+        </div>
+      </div>
+      <button class="print-btn" onclick="window.print()">[ PRINT / SAVE PDF ]</button>
+    </header>
+
+    <section>
+      <h2>PROFESSIONAL SUMMARY</h2>
+      <p>
+        Highly analytical and detail-oriented IT professional with over 8 years of dedicated experience managing critical Student Information Systems (SIS), enterprise database architecture, and public-facing web infrastructure[cite: 1]. Proven skill in optimizing database architecture, engineering data pipelines for compliance, and managing front-end Content Management Systems (CMS)[cite: 1]. Adept at bridging the gap between technical data systems, communications departments, and administrative leadership to drive digital accessibility and innovation[cite: 1]. Experienced in hands-on field support, hardware provisioning, and structured cabling, with active expansion into commercial field dispatch services[cite: 1].
+      </p>
+    </section>
+
+    <section>
+      <h2>FIELD SERVICES &amp; INDEPENDENT VENTURE</h2>
+      <div class="venture-box">
+        <div class="venture-header">
+          <span class="venture-title">CABLE BROS // Co-Founder &amp; Lead Field Technician</span>
+          <span class="badge">ACTIVE ON WORKMARKET &amp; FIELD NATION</span>
+        </div>
+        <p style="margin-bottom: 10px; font-size: 0.92rem;">
+          Independent IT field service and low-voltage infrastructure partnership serving commercial and residential clients across the Greater Chicagoland area via WorkMarket, Field Nation, and direct dispatch.
+        </p>
+        <ul>
+          <li><strong>On-Site Smart Hands &amp; Break/Fix:</strong> Hardware diagnostics, workstation/POS deployment, peripheral swaps, router/switch provisioning, and remote-assisted troubleshooting.</li>
+          <li><strong>Low-Voltage &amp; Infrastructure:</strong> Structured copper cabling, patch panel termination, tone/continuity testing, and surveillance/security system hardware installation.</li>
+          <li><strong>Fiber Optics Expansion (April 2027 Track):</strong> Enrolled in formal Fiber Optic Technician certification training in April to expand service offerings into fiber termination, OTDR/power-meter testing, and splicing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>TECHNICAL SKILLS</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <strong>Database &amp; Systems Management</strong>
+          <p>Student Information Systems (Skyward Qmlativ / SIS), Enterprise Database Administration, Data Integration, Data Infrastructure, Data Auditing, Compliance Reporting[cite: 1].</p>
+        </div>
+        <div class="skill-card">
+          <strong>Web Development &amp; Communications</strong>
+          <p>WordPress, HTML5, CSS, JavaScript, Adobe Creative Suite (Photoshop, Dreamweaver), CMS Administration, SEO, UI/UX Design[cite: 1].</p>
+        </div>
+        <div class="skill-card">
+          <strong>IT Operations &amp; Field Support</strong>
+          <p>Help Desk Management, Remote Troubleshooting (TeamViewer), POS &amp; Surveillance Hardware, LAN Architecture, Structured Cabling, Disaster Recovery[cite: 1].</p>
+        </div>
+        <div class="skill-card">
+          <strong>Data Analytics &amp; AI</strong>
+          <p>Microsoft Excel, Google Workspace, Office 365, Large Language Models (LLMs), Machine Learning (ML), NLP, AI for Research and Operational Insights[cite: 1].</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>PROFESSIONAL EXPERIENCE</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Cable Bros</span>
+          <span class="location">Crestwood, IL / Chicagoland Area</span>
+        </div>
+        <div class="role-line">
+          <span>Co-Founder &amp; Field Service Technician (WorkMarket / Field Nation)</span>
+          <span>2026 – Present</span>
+        </div>
+        <ul>
+          <li>Deliver on-site IT field support, hardware rollouts, network equipment troubleshooting, and low-voltage cabling services for commercial dispatch tickets and local clients.</li>
+          <li>Coordinate multi-tech site deployments, site surveys, and equipment staging for point-of-sale, retail networking, and security camera systems.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Community Consolidated School District 181</span>
+          <span class="location">Hinsdale, IL[cite: 1]</span>
+        </div>
+        <div class="role-line">
+          <span>Database Manager, Web Developer, &amp; Communications Assistant</span>
+          <span>August 2018 – Present[cite: 1]</span>
+        </div>
+        <ul>
+          <li>Manage data architecture and day-to-day security of the district's core Student Information System (Skyward Qmlativ) to ensure integrity across thousands of student records[cite: 1].</li>
+          <li>Engineer complex data workflows, master scheduling structures, and automated compliance reporting using advanced Skyward and Excel techniques[cite: 1].</li>
+          <li>Developed and maintain the full District 181 public website, overseeing frontend design, accessibility, security, and ongoing content updates[cite: 1].</li>
+          <li>Collaborate with the communications team on district-wide email systems, public announcements, digital media production, and custom district logos[cite: 1].</li>
+          <li>Provide rapid-response system troubleshooting and direct technical support to district administrators and staff[cite: 1].</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Illinois Association of Latino Administrators and Superintendents (IALAS)</span>
+          <span class="location">Remote[cite: 1]</span>
+        </div>
+        <div class="role-line">
+          <span>Webmaster &amp; Web Content Manager</span>
+          <span>September 2022 – Present[cite: 1]</span>
+        </div>
+        <ul>
+          <li>Redesigned and rebuilt the official organizational website (ialas.org) to modernize UI/UX design, improve navigation, and increase member engagement[cite: 1].</li>
+          <li>Manage ongoing web content updates, digital media assets, conference/event announcements, and site security[cite: 1].</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Tech Squad</span>
+          <span class="location">Chicago, IL[cite: 1]</span>
+        </div>
+        <div class="role-line">
+          <span>IT Support Technician &amp; Help Desk Specialist</span>
+          <span>October 2016 – August 2018[cite: 1]</span>
+        </div>
+        <ul>
+          <li>Managed rapid tier-1 and tier-2 technical help desk support, troubleshooting hardware, software, and peripheral systems via remote access protocols (TeamViewer)[cite: 1].</li>
+          <li>Configured, diagnosed, and repaired commercial networking hardware, point-of-service (POS) devices, routing configurations, and surveillance architectures[cite: 1].</li>
+          <li>Executed end-to-end physical infrastructure tasks, including Cat 5 and fiber-optic cabling installation, line testing, and hardware provisioning[cite: 1].</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">EZlocal</span>
+          <span class="location">Lombard, IL[cite: 1]</span>
+        </div>
+        <div class="role-line">
+          <span>Web Designer &amp; Digital Content Developer</span>
+          <span>August 2015 – October 2017[cite: 1]</span>
+        </div>
+        <ul>
+          <li>Directed end-to-end lifecycle development, wireframing, graphic implementation, and routine plugin maintenance for high-traffic WordPress websites across diverse industries[cite: 1].</li>
+          <li>Designed and executed SEO/SEM campaigns to improve search rankings, track conversion funnels, and grow organic traffic[cite: 1].</li>
+          <li>Collaborated directly with business clients to define project scope, map technical timelines, and deliver post-launch support[cite: 1].</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">DownRange Dynamics</span>
+          <span class="location">Portage, IN[cite: 1]</span>
+        </div>
+        <div class="role-line">
+          <span>Sales Associate &amp; Web Specialist</span>
+          <span>January 2012 – August 2015[cite: 1]</span>
+        </div>
+        <ul>
+          <li>Developed, branded, and maintained the company's primary web storefront, expanding digital reach and scaling online sales[cite: 1].</li>
+          <li>Managed high-volume e-commerce listings and online auction portals (eBay, GunBroker), synchronizing live inventory with point-of-sale systems[cite: 1].</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>EDUCATION &amp; CERTIFICATIONS</h2>
+      <ul class="cert-list">
+        <li class="cert-upcoming"><strong>Fiber Optic Technician Training</strong> – Scheduled April 2027</li>
+        <li><strong>Google AI Professional Certificate</strong> – AI Fundamentals[cite: 1]</li>
+        <li><strong>Information Management Systems</strong> – Moraine Valley Community College[cite: 1]</li>
+        <li><strong>Computer Support Technician Certification</strong> – Moraine Valley Community College[cite: 1]</li>
+        <li><strong>Web Design and Management Certification</strong> – Moraine Valley Community College[cite: 1]</li>
+        <li><strong>Adobe Certified Expert (ACE)</strong> – Dreamweaver[cite: 1]</li>
+        <li><strong>General Studies</strong> – Moraine Valley Community College[cite: 1]</li>
+      </ul>
+    </section>
+
+    <footer>
+      EOF // DAVID CARRANO &mdash; THE NEON BASEMENT &mdash; CRESTWOOD, IL
+    </footer>
+  </div>
+</body>
+</html>
